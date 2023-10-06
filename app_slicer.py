@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -19,8 +18,8 @@ start_date = "2023-09-01"
 end_date = "2023-10-01"
 
 # Date slicer
-start_date = st.date_input("Start Date", min_value=data['Date'].min(), max_value=data['Date'].max())
-end_date = st.date_input("End Date", min_value=data['Date'].min(), max_value=data['Date'].max())
+start_date = st.date_input("Start Date", min_value=data['Date'].min(), max_value=data['Date'].max(), value=start_date)
+end_date = st.date_input("End Date", min_value=data['Date'].min(), max_value=data['Date'].max(), value=end_date)
 
 # Convert the selected date inputs to datetime if needed
 start_date = pd.to_datetime(start_date)
