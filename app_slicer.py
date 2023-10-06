@@ -21,6 +21,7 @@ end_date = "2023-10-01"
 start_date = st.date_input("Start Date", min_value=data['Date'].min(), max_value=data['Date'].max(), value=start_date)
 end_date = st.date_input("End Date", min_value=data['Date'].min(), max_value=data['Date'].max(), value=end_date)
 
+print('fecha inicio', start_date)
 # Convert the selected date inputs to datetime if needed
 start_date = pd.to_datetime(start_date)
 end_date = pd.to_datetime(end_date)
