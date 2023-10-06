@@ -28,14 +28,14 @@ filtered_data = data[(data['Date'] >= start_date) & (data['Date'] <= end_date)]
 st.subheader("Line Plot")
 st.line_chart(filtered_data.set_index('Date')['Value'])
 
-# Scatter plot
-st.subheader("Scatter Plot")
-st.scatter_chart(filtered_data)
+# Bar chart (instead of scatter plot)
+st.subheader("Bar Chart")
+st.bar_chart(filtered_data.set_index('Date')['Value'])
 
 # Histogram
 st.subheader("Histogram")
 sns.histplot(filtered_data['Value'], bins=20, kde=True)
-st.pyplot()
+st.pyplot()  # Pass the figure to st.pyplot()
 
 # Summary statistics
 st.subheader("Summary Statistics")
