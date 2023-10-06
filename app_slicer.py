@@ -14,6 +14,10 @@ data = pd.DataFrame({
 # Set app title
 st.title("Interactive Streamlit App")
 
+# Set initial values for start_date and end_date
+start_date = "2023-09-01"
+end_date = "2023-10-01"
+
 # Date slicer
 start_date = st.date_input("Start Date", min_value=data['Date'].min(), max_value=data['Date'].max())
 end_date = st.date_input("End Date", min_value=data['Date'].min(), max_value=data['Date'].max())
