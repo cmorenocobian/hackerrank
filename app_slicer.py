@@ -18,8 +18,11 @@ st.title("Enhanced Interactive Streamlit App")
 # Date range slider
 date_range = st.slider("Select Date Range", min_value=data['Date'].min(), max_value=data['Date'].max(), value=(data['Date'].min(), data['Date'].max()))
 
+# Convert the selected date range to datetime objects
+start_date, end_date = date_range
+
 # Filter data based on selected date range
-filtered_data = data[(data['Date'] >= date_range[0]) & (data['Date'] <= date_range[1])]
+filtered_data = data[(data['Date'] >= start_date) & (data['Date'] <= end_date)]
 
 # Line plot
 st.subheader("Line Plot")
@@ -31,9 +34,9 @@ st.bar_chart(filtered_data.set_index('Date')[['Value1', 'Value2', 'Value3']])
 
 # Histogram
 st.subheader("Histogram")
-sns.histplot(data=data[(data['Date'] >= date_range[0]) & (data['Date'] <= date_range[1])], x='Value1', bins=20, kde=True, label='Value1', color='blue')
-sns.histplot(data=data[(data['Date'] >= date_range[0]) & (data['Date'] <= date_range[1])], x='Value2', bins=20, kde=True, label='Value2', color='green')
-sns.histplot(data=data[(data['Date'] >= date_range[0]) & (data['Date'] <= date_range[1])], x='Value3', bins=20, kde=True, label='Value3', color='red')
+sns.histplot(data=filtered_data, x='Value1', bins=20, kde=True, label='Value1', color='blue')
+sns.histplot(data=filtered_data, x='Value2', bins=20, kde=True, label='Value2', color='green')
+sns.histplot(data=filtered_data, x='Value3', bins=20, kde=True, label='Value3', color='red')
 plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.legend()
