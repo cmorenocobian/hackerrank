@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import datetime as dt
 
 # Sample data
 data = pd.DataFrame({
@@ -14,8 +15,8 @@ data = pd.DataFrame({
 st.title("Interactive Streamlit App")
 
 # Set initial values for start_date and end_date
-start_date = "2023-09-01"
-end_date = "2023-10-01"
+start_date = dt.date(2023,9,1)
+end_date = dt.date(2023,10,1)
 
 # Date slicer
 start_date = st.date_input("Start Date", min_value=data['Date'].min(), max_value=data['Date'].max(), value=start_date)
