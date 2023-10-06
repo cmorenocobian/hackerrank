@@ -25,6 +25,8 @@ end_date = pd.to_datetime(end_date)
 # Filter data based on selected dates
 filtered_data = data[(data['Date'] >= start_date) & (data['Date'] <= end_date)]
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
 # Line plot
 st.subheader("Line Plot")
 st.line_chart(filtered_data.set_index('Date')['Value'])
