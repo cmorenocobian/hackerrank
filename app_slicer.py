@@ -15,12 +15,9 @@ data = pd.DataFrame({
 # Set app title
 st.title("Enhanced Interactive Streamlit App")
 
-# Date range slider
-date_range_slider = st.slider("Select Date Range", 0, len(data) - 1, (0, len(data) - 1))
-
-# Convert the selected slider values to date range
-start_index, end_index = date_range_slider
-start_date, end_date = data.iloc[start_index]['Date'], data.iloc[end_index]['Date']
+# Date slicer
+start_date = st.date_input("Start Date", min_value=data['Date'].min(), max_value=data['Date'].max())
+end_date = st.date_input("End Date", min_value=data['Date'].min(), max_value=data['Date'].max())
 
 # Filter data based on selected date range
 filtered_data = data[(data['Date'] >= start_date) & (data['Date'] <= end_date)]
